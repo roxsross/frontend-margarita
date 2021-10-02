@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<testsuite name="HeadlessChrome 94.0.4606 (Linux 0.0.0)" package="" timestamp="2021-09-30T23:49:48" id="0" hostname="roxsross" tests="6" errors="0" failures="0" time="0.127">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/94.0.4606.61 Safari/537.36"/>
+  </properties>
+  <testcase name="AppComponent should create the app" time="0.044" classname="HeadlessChrome_94_0_4606_(Linux_0_0_0).AppComponent"/>
+  <testcase name="BottombarComponent should create" time="0.023" classname="HeadlessChrome_94_0_4606_(Linux_0_0_0).BottombarComponent"/>
+  <testcase name="HistoryComponent should create" time="0.013" classname="HeadlessChrome_94_0_4606_(Linux_0_0_0).HistoryComponent"/>
+  <testcase name="HomeComponent should create" time="0.014" classname="HeadlessChrome_94_0_4606_(Linux_0_0_0).HomeComponent"/>
+  <testcase name="MapComponent should create" time="0.021" classname="HeadlessChrome_94_0_4606_(Linux_0_0_0).MapComponent"/>
+  <testcase name="NavbarComponent should create" time="0.012" classname="HeadlessChrome_94_0_4606_(Linux_0_0_0).NavbarComponent"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

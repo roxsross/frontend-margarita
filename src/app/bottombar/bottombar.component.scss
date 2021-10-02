@@ -1,0 +1,21 @@
+.bottombar{
+  background-color: transparent;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(10px);
+
+  a {
+    color: white;
+  }
+
+  i {
+    color: white;
+  }
+
+  button{
+    border-color: white;
+    color: white;
+  }
+}

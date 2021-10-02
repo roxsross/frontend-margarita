@@ -1,0 +1,15 @@
+.navbar{
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+
+  a{
+    color: black;
+    font-weight: bold;
+    letter-spacing: 4px;
+  }
+}
+
+.ui.menu {
+  border: 0 none !important;
+  box-shadow: none;
+}

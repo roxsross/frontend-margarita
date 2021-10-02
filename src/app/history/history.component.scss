@@ -1,0 +1,11 @@
+.history {
+  padding: 10%;
+  backdrop-filter: blur(10px);
+  transition-delay: 1s;
+
+
+  span {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+}

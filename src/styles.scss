@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: WalkWay;
+  src: url("assets/font/Walkway UltraBold.ttf") format("truetype");
+}
+
+* {
+  font-family: "Walkway", sans-serif;
+  color: white;
+}
+
+.bg {
+  background-image: url("assets/img/1.jpg");
+  background-position: top;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
