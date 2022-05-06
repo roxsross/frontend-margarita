@@ -55,7 +55,10 @@ jobs:
    
     - name: Upload S3
       run:  aws s3 cp dist.zip s3://${{ env.REPONAME }}
-      
+    
+    - name: Make executeable
+      run: chmod +x ./.github/scripts/amplify-deploy.sh     
+
     - name: Deploy
       run:  ./.github/scripts/amplify-deploy.sh 
-      shell: bash
+
