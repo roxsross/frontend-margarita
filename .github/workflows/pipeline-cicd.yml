@@ -27,9 +27,10 @@ jobs:
     - name: build
       run: |
           npm run build  
+          
     - name: Create ZIP deployment package
       run: cd public;zip ../dist.zip * -r  
-    - name: upload to the same artifact
+      
     - uses: actions/upload-artifact@v3
       with:
         path: dist.zip   
