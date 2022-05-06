@@ -46,10 +46,14 @@ jobs:
       AWS_DEFAULT_REGION: us-east-1
       AWS_DEFAULT_OUTPUT: json
     steps:
+    - uses: actions/checkout@v3
+
     - name: Download artifact from build job
       uses: actions/download-artifact@v2
       with:  
         name: node-app
+    - name: listas   
+      run: ls -la     
     - name: Upload S3
       run:  aws s3 cp dist.zip s3://${{ env.REPONAME }}
     - name: Deploy
