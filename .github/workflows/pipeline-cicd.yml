@@ -6,8 +6,9 @@ on:
   pull_request:
     branches: [ main ]
 env:
-  APP_ID: roxsross12
+  APP_ID: d1my6efm0i2l67
   REPONAME: demo-s3-a1
+  BRANCH_NAME: master
 
 jobs:
   build:
@@ -35,6 +36,7 @@ jobs:
       with:
         name: node-app
         path: dist.zip   
+  
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
@@ -44,11 +46,11 @@ jobs:
       AWS_DEFAULT_REGION: us-east-1
       AWS_DEFAULT_OUTPUT: json
     steps:
-
     - name: Download artifact from build job
       uses: actions/download-artifact@v2
       with:  
         name: node-app
-
     - name: Upload S3
       run:  aws s3 cp dist.zip s3://${{ env.REPONAME }}
+    - name: Deploy
+      run:  ./scripts/amplify-deploy.sh  

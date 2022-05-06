@@ -1,9 +1,9 @@
-echo "Deploy app $1 branch $2"
-JOB_ID=$(aws amplify start-job --app-id $1 --branch-name $2 --job-type RELEASE | jq -r '.jobSummary.jobId')
-echo "Release started"
-echo "Job ID is $JOB_ID"
+echo "Deploy app $APP_ID branch $REPONAME"
+if [ -z "$APP_ID" ]
+      then
+      echo "ERROR! no APP_ID defined"
+      exit 1
+      
+fi
 
-while [[ "$(aws amplify get-job --app-id $1 --branch-name $2 --job-id $JOB_ID | jq -r '.job.summary.status')" =~ ^(PENDING|RUNNING)$ ]]; do sleep 1; done
-JOB_STATUS="$(aws amplify get-job --app-id $1 --branch-name $2 --job-id $JOB_ID | jq -r '.job.summary.status')"
-echo "Job finished"
-echo "Job status is $JOB_STATUS"
+aws amplify start-deployment --app-id $APP_ID --source-url s3://$REPONAME/dist.zip --branch-name $BRANCH_NAME
