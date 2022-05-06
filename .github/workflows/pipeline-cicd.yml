@@ -24,8 +24,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
       # test the apps     
-      - name: build
-        run: |
+    - name: build
+      run: |
           npm run build   
   deploy:
     runs-on: ubuntu-latest
