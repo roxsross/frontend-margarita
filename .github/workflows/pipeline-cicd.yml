@@ -36,8 +36,9 @@ jobs:
       AWS_DEFAULT_REGION: us-east-1
       AWS_DEFAULT_OUTPUT: json
     steps:
-    - uses: actions/checkout@v3
-
+    # - uses: actions/checkout@v3
+    - name: listar
+      run: ls -lrt
     - name: Create ZIP deployment package
       run: cd public;zip ../dist.zip * -r
 
