@@ -57,4 +57,5 @@ jobs:
       run:  aws s3 cp dist.zip s3://${{ env.REPONAME }}
       
     - name: Deploy
-      run:  ./.github/workflows/scripts/amplify-deploy.sh  
+      run:  ./.github/scripts/amplify-deploy.sh 
+      shell: bash
