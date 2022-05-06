@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Deploy app $APP_ID branch $REPONAME"
 if [ -z "$APP_ID" ]
       then
