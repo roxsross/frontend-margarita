@@ -1,0 +1,44 @@
+name: workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+env:
+  APP_ID: roxsross12
+  REPONAME: demo-s3-a1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+      # test the apps     
+      - name: build
+        run: |
+          npm run build   
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_DEFAULT_OUTPUT: json
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Create ZIP deployment package
+      run: cd public;zip ../dist.zip * -r
+
+    - name: Upload S3
+      run:  aws s3 cp dist.zip s3://${{ env.REPONAME }}
